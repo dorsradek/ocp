@@ -18,6 +18,7 @@ public class Test1 {
         test1.test3();
         test1.test4();
         test1.test5();
+        test1.test6();
     }
 
     public void test() {
@@ -90,5 +91,12 @@ public class Test1 {
         random.limit(3).forEach(System.out::println);
         System.out.println();
         fractions.limit(3).forEach(System.out::println);
+    }
+
+    public void test6() {
+        Runnable run = () ->  System.out.println("Run");
+        Runnable run2 = () -> {
+            System.out.println("Run");
+        };
     }
 }
