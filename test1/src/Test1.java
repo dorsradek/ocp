@@ -19,6 +19,7 @@ public class Test1 {
         test1.test4();
         test1.test5();
         test1.test6();
+        test1.test7();
     }
 
     public void test() {
@@ -98,5 +99,15 @@ public class Test1 {
         Runnable run2 = () -> {
             System.out.println("Run");
         };
+    }
+
+    public void test7() {
+//        for (int i = 0; i < 3; i++)
+//            System.out.println("123");
+        // NOT COMPILE!!!
+
+        if (true)
+            if (true)
+                System.out.println("345");
     }
 }
