@@ -95,7 +95,7 @@ public class Test1 {
     }
 
     public void test6() {
-        Runnable run = () ->  System.out.println("Run");
+        Runnable run = () -> System.out.println("Run");
         Runnable run2 = () -> {
             System.out.println("Run");
         };
@@ -110,4 +110,33 @@ public class Test1 {
             if (true)
                 System.out.println("345");
     }
+
+    static String j = "";
+
+    public static void method(int i) {
+        try {
+            if (i == 2) {
+                throw new Exception();
+            }
+            j += "1";
+        } catch (Exception e) {
+            j += "2";
+            return;
+        } finally {
+            j += "3";
+        }
+        j += "4";
+    }
+
+    public static void main() {
+        method(1);
+        method(2);
+        System.out.println(j);
+    }
+
+    String[][][] arr = {
+            {{"a", "b", "c"}, {"d", "e", null}},
+            {{"x"}, null},
+            {{"y"}},
+            {{"z", "p"}, {}}};
 }
