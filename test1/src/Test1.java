@@ -20,6 +20,7 @@ public class Test1 {
         test1.test5();
         test1.test6();
         test1.test7();
+        test1.test8();
     }
 
     public void test() {
@@ -139,4 +140,91 @@ public class Test1 {
             {{"x"}, null},
             {{"y"}},
             {{"z", "p"}, {}}};
+
+    private void test8() {
+        String xx = "asd";
+        if (xx == new String("asd")) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+
+        for (int i = 0; i < 3; i++);
+
+        int a = 3;
+        byte b = 3;
+        char c = 3;
+        short d = 3;
+        long e = 3;
+        float f = 3;
+        double g = 3;
+        Integer aa = 3;
+        Short bb = 3;
+//        if (aa == bb) {
+//            System.out.println("a == b");
+//        }
+
+        double q = 3;
+        int w = 3;
+        if (q == w) {
+            System.out.println("q == w");
+        }
+        double h = 3.0;
+        if (h == w) {
+            System.out.println("q == w");
+        }
+
+        Double dd = new Double(3.0);
+        char aaa = 3;
+        if (aaa == dd) {
+            System.out.println("aaa == dd");
+        }
+
+        Double ddd = new Double(3);
+
+        if (ddd == dd) {
+            System.out.println("ddd == dd");
+        }
+        if (ddd.equals(dd)) {
+            System.out.println("ddd2 == dd2");
+        }
+
+
+
+
+
+        if (aa == a) {
+            System.out.println("aa == a");
+        }
+        if (aa == b) {
+            System.out.println("aa == b");
+        }
+        if (a == b) {
+            System.out.println("a == b");
+        }
+        if (a == e) {
+            System.out.println("a == e");
+        }
+        if (a == c) {
+            System.out.println("a == c");
+        }
+        if (a == d) {
+            System.out.println("a == d");
+        }
+        if (a == f) {
+            System.out.println("a == f");
+        }
+        if (a == g) {
+            System.out.println("a == g");
+        }
+        if (b == c) {
+            System.out.println("b == c");
+        }
+        if (b == d) {
+            System.out.println("b == d");
+        }
+        if (c == d) {
+            System.out.println("c == d");
+        }
+    }
 }
