@@ -1,10 +1,7 @@
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.Stream;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * Created by rdors on 2016-07-27.
@@ -13,7 +10,8 @@ public class Test2OCP {
 
     public static void main(String[] args) {
         Test2OCP test1 = new Test2OCP();
-        test1.test1();
+        //test1.test1();
+        test1.test2();
     }
 
     public void test1() {
@@ -23,6 +21,45 @@ public class Test2OCP {
         System.out.println(ls.stream().max(Integer::compare).get()); //3
         System.out.println(ls.stream().max((a, b) -> a > b ? a : b)); //4
         System.out.println(ls.stream().max((a, b) -> a - b).get()); //4
+    }
+
+    class Person {
+        private String name;
+
+        public Person(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String toString() {
+            return name;
+        }
+    }
+
+    class Helper {
+        public void helpPeople(Queue people, Queue helped) {
+            do {
+                Person p = (Person) people.poll();
+                System.out.println("Helped : " + p + " ");
+                helped.offer(p.getName());
+            } while (!people.isEmpty());
+        }
+    }
+
+    public void test2() {
+        Queue<Person> q = new LinkedList<Person>();
+        q.offer(new Person("Pope"));
+        q.offer(new Person("John"));
+        Queue<Person> helpedQ = new LinkedList<Person>();
+        Helper h = new Helper();
+        h.helpPeople(q, helpedQ);
     }
 
 }
