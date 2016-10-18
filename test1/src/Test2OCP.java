@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
@@ -11,7 +12,8 @@ public class Test2OCP {
         Test2OCP test1 = new Test2OCP();
         //test1.test1();
         //test1.test2();
-        test1.test3();
+        //test1.test3();
+        test1.test4();
     }
 
     public void test1() {
@@ -105,6 +107,83 @@ public class Test2OCP {
         String name = oH.flatMap(Person::getA).map(A::getName).orElse("NIC");
         Consumer<String> c = System.out::println;
         c.accept(name);
+    }
+
+    public void test4() {
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                System.out.println("Thread");
+            }
+        };
+        t.start();
+
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Runnable");
+            }
+        };
+        new Thread(r).start();
+    }
+
+    class AA {
+        void a() {
+
+        }
+    }
+
+    class BB extends AA {
+        @Override
+        void a() throws RuntimeException {
+            super.a();
+        }
+    }
+
+    public void test5() {
+        Callable<String> c = new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return "Callable";
+            }
+        };
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future<String> f = executorService.submit(c);
+
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Runnable");
+            }
+        };
+        new Thread(r).start();
+    }
+
+
+}
+
+class TopLevelClass {
+
+    class Inner1 {
+
+        final static String test1 = "3";
+        //static String test2 = "3";
+
+//        static void test3() {
+//
+//        }
+
+    }
+
+    static class Inner2 {
+
+        final static String test1 = "3";
+        static String test2 = "3";
+
+        static void test3() {
+
+        }
+
     }
 
 }
