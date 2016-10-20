@@ -1,7 +1,9 @@
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * Created by rdors on 2016-07-27.
@@ -159,6 +161,30 @@ public class Test2OCP {
         new Thread(r).start();
     }
 
+    public void test6() {
+        //Predicate p = (String a) -> a.length() > 0;
+        Predicate<String> p = (String a) -> a.length() > 0;
+        Stream<String> asd = Stream.of("1", "2", "3");
+
+//        while(true) {
+//
+//        };
+    }
+
+    public void test7() {
+        List<ABC> list = new ArrayList<>();
+        //Collections.sort(list);
+    }
+
+    public void test8() {
+        Map m = new HashMap();
+        m.put(1, "23");
+        m.put(new ArrayList(), 3);
+    }
+
+}
+
+class ABC {
 
 }
 
@@ -186,4 +212,12 @@ class TopLevelClass {
 
     }
 
+}
+
+class MyStringComparator implements Comparator {
+    public int compare(Object o1, Object o2) {
+        int s1 = ((String) o1).length();
+        int s2 = ((String) o2).length();
+        return s1 - s2;
+    }
 }
